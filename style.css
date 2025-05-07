@@ -77,3 +77,12 @@ footer {
   color: white;
   margin-top: 2rem;
 }
+/* Dynamic word change effect */
+#dynamicText .dynamic-word {
+  font-weight: bold;
+  transition: opacity 0.5s ease;
+}
+
+#dynamicText .dynamic-word.fade-out {
+  opacity: 0;
+}
