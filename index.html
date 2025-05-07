@@ -5,6 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>My Business Portfolio</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Fade effect for dynamic word */
+    #dynamicText .dynamic-word {
+      font-weight: bold;
+      transition: opacity 0.5s ease;
+    }
+
+    #dynamicText .dynamic-word.fade-out {
+      opacity: 0;
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -26,12 +37,12 @@
     <p>HR Professional</p>
   </section>
 
-<section id="about" class="section">
-  <h2>About Me</h2>
-  <p id="dynamicText">
-    I'm a passionate <span class="dynamic-word">Developer</span>, always learning new things!
-  </p>
-</section>
+  <section id="about" class="section">
+    <h2>About Me</h2>
+    <p id="dynamicText">
+      I'm a passionate <span class="dynamic-word">Professional</span> with a focus on people and strategy.
+    </p>
+  </section>
 
   <section id="interests" class="section alt-bg">
     <h2>Interests</h2>
@@ -47,7 +58,7 @@
     <h2>Work Experience</h2>
     <ul>
       <li><strong>Job Title</strong> – Company Name  (XXXX)</li>
-      <li><strong> Job Title </strong> – Company Name (XXXX)</li>
+      <li><strong>Job Title</strong> – Company Name (XXXX)</li>
     </ul>
   </section>
 
@@ -67,25 +78,25 @@
   <footer>
     <p>© 2025 Alexandra Torres. All rights reserved.</p>
   </footer>
+
   <script>
-// Array of words for dynamic changes
-const words = ["Developer", "Designer", "Entrepreneur", "Strategist", "Creative Thinker"];
-let wordIndex = 0;
-const dynamicTextElement = document.querySelector("#dynamicText .dynamic-word");
+    const words = ["Professional", "Leader", "Strategist", "Team Builder", "Problem Solver"];
+    let wordIndex = 0;
+    const dynamicTextElement = document.querySelector("#dynamicText .dynamic-word");
 
-// Function to change the word in the About Me section
-function changeWord() {
-  dynamicTextElement.classList.add('fade-out'); // Add fade-out effect
+    function changeWord() {
+      if (!dynamicTextElement) return;
 
-  setTimeout(() => {
-    dynamicTextElement.textContent = words[wordIndex];  // Change word
-    wordIndex = (wordIndex + 1) % words.length; // Cycle through words
-    dynamicTextElement.classList.remove('fade-out'); // Remove fade-out effect
-  }, 500); // Wait before changing the word
-}
+      dynamicTextElement.classList.add('fade-out');
 
-// Change the word every 2 seconds
-setInterval(changeWord, 2000);
-</script>
+      setTimeout(() => {
+        wordIndex = (wordIndex + 1) % words.length;
+        dynamicTextElement.textContent = words[wordIndex];
+        dynamicTextElement.classList.remove('fade-out');
+      }, 500);
+    }
+
+    setInterval(changeWord, 2000);
+  </script>
 </body>
 </html>
